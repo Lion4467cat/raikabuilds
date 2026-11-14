@@ -11,11 +11,7 @@
     var themeLabel = document.querySelector('.theme-label');
 
     function getActiveTheme() {
-        var attr = root.getAttribute('data-theme');
-        if (!attr || attr === 'system') {
-            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        }
-        return attr;
+        return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
     }
 
     function syncThemeLabel() {
@@ -28,11 +24,9 @@
         btn.addEventListener('click', function () {
             var next = getActiveTheme() === 'dark' ? 'light' : 'dark';
             root.setAttribute('data-theme', next);
-            try { localStorage.setItem('theme', next); } catch (e) {}
             syncThemeLabel();
         });
     });
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', syncThemeLabel);
     syncThemeLabel();
 
     // ---- Mobile Navigation Drawer ----

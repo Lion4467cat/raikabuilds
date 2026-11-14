@@ -1,661 +1,408 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="system">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S. S. Gokula Swamy — AI Systems Architect & Multimodal ML Researcher</title>
-    <meta name="description" content="Portfolio of S. S. Gokula Swamy (Lion4467cat). AI Systems Architect specializing in multimodal vision pipelines (SigLIP-2, DINOv2, MoGe-2), GPU-vectorized mathematical optimization, and acoustic signal forensics.">
-    <meta name="keywords" content="Gokula Swamy, Lion4467cat, AI Systems, Multimodal ML, SigLIP-2, MoGe-2, DINOv2, PyTorch, Wind Farm Layout Optimization, wflo-ga, NutriSense, The Greenifier">
+    <title>S. S. Gokula Swamy — AI &amp; ML Researcher</title>
+    <meta name="description" content="S. S. Gokula Swamy — AI &amp; ML undergraduate at B.M.S. College of Engineering, Bengaluru. Research in GPU-accelerated optimization, 3D multimodal vision, and audio signal forensics.">
+    <meta name="author" content="S. S. Gokula Swamy">
+    <meta name="theme-color" content="#f6f5f1" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0c0d10" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231d3b72'/%3E%3Ctext x='16' y='21' font-family='monospace' font-size='13' font-weight='700' fill='%23f6f5f1' text-anchor='middle'%3EGS%3C/text%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@700;800;900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <!-- Anime.js v4 Library -->
-    <script src="assets/anime.min.js"></script>
+    <script>
+        (function () {
+            document.documentElement.classList.add('js');
+            try {
+                var saved = localStorage.getItem('theme') || 'system';
+                document.documentElement.setAttribute('data-theme', saved);
+            } catch (e) {
+                document.documentElement.setAttribute('data-theme', 'system');
+            }
+        })();
+    </script>
 </head>
-<body class="dark-theme">
+<body>
+    <a class="skip-link" href="#content">Skip to content</a>
 
-    <!-- Fluid Custom Magnetic Cursor -->
-    <div id="cursor-dot" class="cursor-dot" aria-hidden="true"></div>
-    <div id="cursor-ring" class="cursor-ring" aria-hidden="true">
-        <span id="cursor-label" class="cursor-label"></span>
-    </div>
-
-    <!-- Full-Screen Fixed Cinematic Background (Dragon Ball Super Ultra Instinct Theme) -->
-    <div id="cinematic-bg" class="cinematic-bg-container" aria-hidden="true">
-        <!-- Layer 1: Ultra Instinct Awakening & God-Ki Aura -->
-        <div id="bg-layer-awakening" class="bg-video-layer active">
-            <video class="bg-video" autoplay loop muted playsinline preload="auto">
-                <source src="assets/ui-awakening.mp4" type="video/mp4">
-            </video>
-        </div>
-        <!-- Layer 2: Ultra Instinct Goku Dodging Jiren's Punch Flurry -->
-        <div id="bg-layer-dodge" class="bg-video-layer">
-            <video class="bg-video" autoplay loop muted playsinline preload="auto">
-                <source src="assets/ui-dodge.mp4" type="video/mp4">
-            </video>
-        </div>
-        <!-- Layer 3: Ultra Instinct Point-Blank Kamehameha Blast -->
-        <div id="bg-layer-kamehameha" class="bg-video-layer">
-            <video class="bg-video" autoplay loop muted playsinline preload="auto">
-                <source src="assets/ui-kamehameha.mp4" type="video/mp4">
-            </video>
-        </div>
-
-        <!-- Ambient Particle & Kinetic Shockwave Canvas -->
-        <canvas id="ambient-canvas" class="ambient-canvas"></canvas>
-
-        <!-- Multi-Layer Vignette & Obsidian Glassmorphism Mask (Guarantees 100% Text Readability) -->
-        <div class="cinematic-vignette"></div>
-        <div class="cinematic-grid-overlay"></div>
-    </div>
-
-    <!-- Minimalist Scroll HUD (Awwwards Style Progress Track) -->
-    <aside id="scroll-hud" class="scroll-hud" aria-label="Page scroll progress">
-        <div class="hud-phase-label" id="hud-phase-name">UI // AWAKENING</div>
-        <div class="hud-track">
-            <div class="hud-progress-bar" id="hud-progress-bar"></div>
-        </div>
-        <div class="hud-counter" id="hud-counter">01 / 05</div>
-        <div class="hud-nav-dots">
-            <button class="hud-dot active" data-target="#hero" title="Hero / Awakening"></button>
-            <button class="hud-dot" data-target="#showcase-pinned" title="Flagship Systems"></button>
-            <button class="hud-dot" data-target="#skills" title="Technical Stack"></button>
-            <button class="hud-dot" data-target="#credentials" title="Education & Rigor"></button>
-            <button class="hud-dot" data-target="#contact" title="Directives & Contact"></button>
-        </div>
-    </aside>
-
-    <!-- Navigation Header -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#" class="nav-brand" data-cursor="HOME">
-                <span class="brand-bracket">[</span>
-                <span class="brand-text">GOKULA SWAMY</span>
-                <span class="brand-bracket">]</span>
-                <span class="status-indicator" title="System Status: Verified">
-                    <span class="status-dot"></span>
-                    <span class="status-label">SYS_ONLINE</span>
-                </span>
-            </a>
-
-            <!-- Real-Time Telemetry Bar -->
-            <div class="nav-telemetry">
-                <span class="telemetry-item">BLR // 12.9716°N 77.5946°E</span>
-                <span class="telemetry-sep">•</span>
-                <span class="telemetry-time" id="live-ist-clock">14:40:00 IST</span>
-            </div>
-
-            <div class="nav-links">
-                <a href="#showcase-pinned" class="nav-link" data-cursor="PROJECTS">Flagship Systems</a>
-                <a href="#skills" class="nav-link" data-cursor="STACK">Architecture Stack</a>
-                <a href="#credentials" class="nav-link" data-cursor="RIGOR">Rigor & Credentials</a>
-                <a href="#contact" class="nav-link" data-cursor="CONNECT">Contact</a>
-            </div>
-
-            <div class="nav-actions">
-                <a href="assets/SS_Gokula_Swamy_Resume.pdf" class="btn btn-resume" target="_blank" rel="noopener noreferrer" data-cursor="PDF">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                    Resume (PDF)
-                </a>
+    <!-- Mobile / Tablet Compact Top Bar (< 880px) -->
+    <header class="mobile-bar" id="mobile-bar">
+        <div class="mobile-bar-inner">
+            <a href="#top" class="mobile-brand">Gokula Swamy</a>
+            <div class="mobile-bar-actions">
+                <button class="icon-btn theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle Light / Dark theme">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7Z"/></svg>
+                </button>
+                <a href="assets/SS_Gokula_Swamy_Resume.pdf" class="bar-resume" target="_blank" rel="noopener noreferrer">Resume ↗</a>
+                <button class="icon-btn menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Open section menu">
+                    <span class="menu-lines" aria-hidden="true"><span></span><span></span></span>
+                </button>
             </div>
         </div>
-    </nav>
+        <div class="scroll-line" aria-hidden="true"><span id="scroll-progress"></span></div>
+        <nav class="mobile-drawer" id="mobile-drawer" aria-label="Mobile sections">
+            <a href="#research"><span>01</span> Research Publication</a>
+            <a href="#projects"><span>02</span> Selected Systems</a>
+            <a href="#education"><span>03</span> Education</a>
+            <a href="#skills"><span>04</span> Technical Stack</a>
+            <a href="#credentials"><span>05</span> Honors &amp; Activities</a>
+            <a href="#contact"><span>06</span> Contact</a>
+        </nav>
+    </header>
 
-    <main id="main-content">
-        <!-- Hero Section (Awakening / High-Impact Editorial) -->
-        <section id="hero" class="hero-section">
-            <div class="hero-container">
-                <div class="hero-eyebrow">
-                    <span class="pill-badge pill-glow-cyan">
-                        <span class="badge-dot"></span>
-                        AI SYSTEMS ARCHITECT & MULTIMODAL ML RESEARCHER
-                    </span>
-                    <span class="hero-affiliation">B.M.S. COLLEGE OF ENGINEERING · BENGALURU</span>
-                </div>
+    <!-- Editorial Split-Rail Layout -->
+    <div class="shell" id="top">
 
-                <h1 class="hero-title">
-                    <span class="hero-line">S. S. GOKULA</span>
-                    <span class="hero-line gradient-silver">SWAMY</span>
-                </h1>
-
-                <p class="hero-tagline">
-                    Engineering high-throughput multimodal perception, GPU-vectorized mathematical optimization, and client-side real-time signal defense systems.
+        <!-- Left Sticky Rail (Desktop) / Compact Intro Header (Mobile) -->
+        <aside class="rail" aria-label="Profile and navigation">
+            <div class="rail-identity">
+                <p class="rail-kicker">B.E. AIML · Bengaluru, India</p>
+                <h1 class="rail-name">S. S. Gokula Swamy</h1>
+                <p class="rail-role">AI &amp; ML Researcher</p>
+                <p class="rail-affil">B.M.S. College of Engineering</p>
+                <p class="rail-bio">
+                    Engineering deep learning systems across multimodal computer vision, GPU-vectorized optimization, and real-time audio signal forensics.
                 </p>
+            </div>
 
-                <!-- High-Impact Quantitative Telemetry Grid -->
-                <div class="hero-stats-strip">
-                    <div class="hero-stat-box" data-cursor="IEEE">
-                        <div class="stat-number-wrap">
-                            <span class="stat-num" data-count="4029">4029</span><span class="stat-unit">.16 GWh/yr</span>
-                        </div>
-                        <span class="stat-label">IEEE AIC 2026 AEP (+2.69% Gain)</span>
+            <nav class="rail-nav" id="rail-nav" aria-label="Section index">
+                <a href="#research" class="rail-link active"><span class="idx">01</span>Research</a>
+                <a href="#projects" class="rail-link"><span class="idx">02</span>Systems</a>
+                <a href="#education" class="rail-link"><span class="idx">03</span>Education</a>
+                <a href="#skills" class="rail-link"><span class="idx">04</span>Stack</a>
+                <a href="#credentials" class="rail-link"><span class="idx">05</span>Credentials</a>
+                <a href="#contact" class="rail-link"><span class="idx">06</span>Contact</a>
+            </nav>
+
+            <div class="rail-footer">
+                <a href="assets/SS_Gokula_Swamy_Resume.pdf" class="btn-resume" target="_blank" rel="noopener noreferrer">
+                    <span>Resume / CV (PDF)</span>
+                    <span aria-hidden="true">↗</span>
+                </a>
+                <div class="rail-utils">
+                    <div class="rail-socials">
+                        <a href="https://github.com/Lion4467cat" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                        <a href="https://linkedin.com/in/ssgokulaswamy" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+                        <a href="mailto:gokulaswamyss@gmail.com">Email</a>
                     </div>
-
-                    <div class="hero-stat-box" data-cursor="UNCLONE">
-                        <div class="stat-number-wrap">
-                            <span class="stat-num" data-count="6">6</span><span class="stat-unit">s Live Window</span>
-                        </div>
-                        <span class="stat-label">UNCLONE AI Hackathon 1st Runner-Up</span>
-                    </div>
-
-                    <div class="hero-stat-box" data-cursor="METROLOGY">
-                        <div class="stat-number-wrap">
-                            <span class="stat-num" data-count="115">115</span><span class="stat-unit"> Classes</span>
-                        </div>
-                        <span class="stat-label">NutriSense 3D Dietary Metrology</span>
-                    </div>
-
-                    <div class="hero-stat-box" data-cursor="CADET">
-                        <div class="stat-number-wrap">
-                            <span class="stat-num" data-count="0.5">~0.5</span><span class="stat-unit">% Top</span>
-                        </div>
-                        <span class="stat-label">UPSC NDA Written Qualified (Sainik School)</span>
-                    </div>
-                </div>
-
-                <div class="hero-cta-group">
-                    <a href="#showcase-pinned" class="btn btn-primary" data-cursor="EXPLORE">
-                        <span>Explore Flagship Systems</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
-                    </a>
-                    <a href="assets/SS_Gokula_Swamy_Resume.pdf" class="btn btn-outline" target="_blank" rel="noopener noreferrer" data-cursor="VIEW">
-                        <span>Curriculum Vitae</span>
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                    </a>
-                    <a href="https://github.com/Lion4467cat" class="btn btn-ghost" target="_blank" rel="noopener noreferrer" data-cursor="GITHUB">
-                        <span>GitHub Profile</span>
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                    </a>
-                </div>
-
-                <div class="scroll-affordance">
-                    <span class="scroll-text">SCROLL TO ENGAGE ARCHITECTURE</span>
-                    <div class="scroll-line">
-                        <span class="scroll-dot-anim"></span>
-                    </div>
+                    <button class="theme-chip theme-toggle" type="button" aria-label="Toggle color theme (Theme)" title="Switch Light / Dark theme">
+                        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+                        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7Z"/></svg>
+                        <span class="theme-label">Theme</span>
+                    </button>
                 </div>
             </div>
-        </section>
+        </aside>
 
-        <!-- Awwwards-Level Pinned Scrollytelling Showcase -->
-        <!-- Pins to viewport while user scrolls vertically through 4 flagship systems -->
-        <section id="showcase-pinned" class="showcase-pinned-section">
-            <div class="showcase-sticky-frame" id="showcase-sticky-frame">
-                
-                <div class="showcase-header-bar">
-                    <div class="showcase-tag">
-                        <span class="tag-bracket">[</span> 02 // FLAGSHIP ARCHITECTURES <span class="tag-bracket">]</span>
+        <!-- Right Editorial Content Column -->
+        <main class="content" id="content">
+
+            <!-- Top Telemetry / Key Facts Ledger -->
+            <section class="ledger reveal" aria-label="Key Highlights">
+                <div class="ledger-cell">
+                    <span class="ledger-label">PUBLICATION</span>
+                    <span class="ledger-value">IEEE AIC 2026 (Accepted)</span>
+                </div>
+                <div class="ledger-cell">
+                    <span class="ledger-label">HACKATHON</span>
+                    <span class="ledger-value">1st Runner-Up · UNCLONE AI</span>
+                </div>
+                <div class="ledger-cell">
+                    <span class="ledger-label">ACADEMICS</span>
+                    <span class="ledger-value">7.37 CGPA · B.E. AIML</span>
+                </div>
+                <div class="ledger-cell">
+                    <span class="ledger-label">NDA EXAM</span>
+                    <span class="ledger-value">Top ~0.5% Nationwide</span>
+                </div>
+            </section>
+
+            <!-- 01 // Research Publication -->
+            <section class="section" id="research">
+                <h2 class="section-heading reveal"><span>01 //</span> Research Publication</h2>
+
+                <article class="editorial-row reveal">
+                    <div class="gutter">
+                        <span class="gutter-tag">IEEE AIC 2026</span>
+                        <span class="gutter-meta">Co-Author</span>
+                        <span class="gutter-meta">Accepted Paper</span>
                     </div>
-                    <div class="showcase-pagination" id="showcase-pagination">
-                        <span id="active-slide-num">01</span> / 04
-                    </div>
-                </div>
-
-                <!-- Horizontal Glide Strip Driven by Vertical Scroll -->
-                <div class="showcase-strip" id="showcase-strip">
-                    
-                    <!-- Slide 01: wflo-ga (IEEE AIC 2026 Paper) -->
-                    <article class="showcase-card border-glow-cyan" data-index="1">
-                        <div class="card-watermark">01</div>
-                        <div class="card-inner">
-                            <div class="card-badge-row">
-                                <span class="pill pill-cyan">Accepted Research Paper</span>
-                                <span class="pill pill-muted">IEEE AIC 2026 · Bengaluru</span>
-                            </div>
-
-                            <h2 class="card-title">
-                                GPU-Accelerated Hybrid Two-Fidelity GA for Wind Farm Layout Optimization
-                            </h2>
-
-                            <div class="card-role-meta">
-                                <strong>Co-Author</strong> · Codebase: <code>Lion4467cat/wflo-ga</code> / <code>wflo-hybrid-ga</code>
-                            </div>
-
-                            <p class="card-body-text">
-                                Solved large-scale offshore layout optimization for 150 turbines on non-convex irregular polygon domains ($10\text{ km} \times 10\text{ km}$). Engineered a GPU-vectorized Jensen wake model in PyTorch executing $(8, 150, 150)$ tensor operations across 8 directional wind bins with zero Python loops. Implemented conditional NREL FLORIS rescoring with a 0.88 fitness gate and $\ge 400\text{ m}$ spacing repair.
-                            </p>
-
-                            <div class="card-metrics-grid">
-                                <div class="metric-block">
-                                    <span class="m-val">4029.16 <small>GWh/yr</small></span>
-                                    <span class="m-lbl">Annual Energy Production</span>
-                                </div>
-                                <div class="metric-block">
-                                    <span class="m-val">+2.69% <small>(+105.7 GWh)</small></span>
-                                    <span class="m-lbl">AEP Gain over Baseline</span>
-                                </div>
-                                <div class="metric-block">
-                                    <span class="m-val">&ge; 400 <small>meters</small></span>
-                                    <span class="m-lbl">Turbine Spacing Constraint</span>
-                                </div>
-                            </div>
-
-                            <div class="card-tech-chips">
-                                <span class="chip">PyTorch (CUDA Tensors)</span>
-                                <span class="chip">FLORIS (NREL)</span>
-                                <span class="chip">PyGAD</span>
-                                <span class="chip">Shapely</span>
-                                <span class="chip">TopFarm</span>
-                                <span class="chip">PyWake</span>
-                            </div>
-
-                            <div class="card-btn-row">
-                                <a href="https://github.com/Lion4467cat/wflo-hybrid-ga" class="btn btn-card-primary" target="_blank" rel="noopener noreferrer" data-cursor="CODE">
-                                    <span>Inspect IEEE wflo-ga Repo</span>
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                </a>
-                            </div>
+                    <div class="entry-body">
+                        <div class="entry-top">
+                            <h3>GPU-Accelerated Hybrid GA for Wind Farm Layout Optimization</h3>
+                            <a href="https://github.com/Lion4467cat/wflo-hybrid-ga" class="ext-link" target="_blank" rel="noopener noreferrer">Repository (GitHub) ↗</a>
                         </div>
-                    </article>
 
-                    <!-- Slide 02: Verified-Agent Badge (UNCLONE AI Hackathon 1st Runner-Up) -->
-                    <article class="showcase-card border-glow-indigo" data-index="2">
-                        <div class="card-watermark">02</div>
-                        <div class="card-inner">
-                            <div class="card-badge-row">
-                                <span class="pill pill-indigo">1st Runner-Up (Team 39)</span>
-                                <span class="pill pill-muted">UNCLONE AI Hackathon 2026 · BMSCE & DetectifAI</span>
-                            </div>
-
-                            <h2 class="card-title">
-                                Verified-Agent Badge: Client-Side Real-Time Voice Deepfake Defense
-                            </h2>
-
-                            <div class="card-role-meta">
-                                <strong>Lead Systems Architect</strong> · Codebase: <code>Lion4467cat/Verified-Agent-Badge</code>
-                            </div>
-
-                            <p class="card-body-text">
-                                Engineered a real-time client-side defensive agent verifying banking representative authenticity over live calls in 6-second sliding windows. Enforced a segment-level policy where synthetic confidence $\ge 0.90$ on any 4-second chunk triggers an instant transaction hold, overriding deceptive call averages. Implemented zero-dependency stdlib PCM WAV signal forensics and Web Audio API spectral voice conversion.
-                            </p>
-
-                            <div class="card-metrics-grid">
-                                <div class="metric-block">
-                                    <span class="m-val">6 <small>seconds</small></span>
-                                    <span class="m-lbl">Live Sliding Call Window</span>
-                                </div>
-                                <div class="metric-block">
-                                    <span class="m-val">&ge; 0.90 <small>Conf</small></span>
-                                    <span class="m-lbl">4-Sec Chunk Hold Gate</span>
-                                </div>
-                                <div class="metric-block">
-                                    <span class="m-val">0 <small>External Deps</small></span>
-                                    <span class="m-lbl">Python stdlib Audio Forensics</span>
-                                </div>
-                            </div>
-
-                            <div class="card-tech-chips">
-                                <span class="chip">FastAPI</span>
-                                <span class="chip">DetectifAI API</span>
-                                <span class="chip">Web Audio API</span>
-                                <span class="chip">PCM WAV Forensics</span>
-                                <span class="chip">Uvicorn</span>
-                                <span class="chip">Render</span>
-                            </div>
-
-                            <div class="card-btn-row">
-                                <a href="https://github.com/Lion4467cat/verified-agent-badge" class="btn btn-card-primary" target="_blank" rel="noopener noreferrer" data-cursor="CODE">
-                                    <span>Inspect Hackathon Repo</span>
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                </a>
-                            </div>
+                        <div class="metrics-ribbon">
+                            <span><strong>4,029.16 GWh/yr</strong> AEP</span>
+                            <span><strong>+2.69%</strong> (+105.7 GWh/yr)</span>
+                            <span><strong>8×150×150</strong> CUDA Tensors</span>
                         </div>
-                    </article>
 
-                    <!-- Slide 03: NutriSense (BMSCE Major Capstone Project) -->
-                    <article class="showcase-card border-glow-emerald" data-index="3">
-                        <div class="card-watermark">03</div>
-                        <div class="card-inner">
-                            <div class="card-badge-row">
-                                <span class="pill pill-emerald">Flagship Capstone Project</span>
-                                <span class="pill pill-muted">B.M.S. College of Engineering</span>
-                            </div>
+                        <ul class="bullet-list">
+                            <li><strong>GPU Wake Vectorization:</strong> Vectorized the analytical Jensen wake model in PyTorch as batched <code>(8, 150, 150)</code> CUDA tensors across 8 wind directions, screening 150-turbine layouts on an irregular 10 × 10 km site without Python loops.</li>
+                            <li><strong>Two-Fidelity Optimization:</strong> Rescored elite layouts via NREL FLORIS (0.88 fitness gate, 10-call per-generation cap) and enforced ≥ 400 m turbine spacing with tiered repair operators, outperforming TOPFARM and a Jensen-only GA.</li>
+                        </ul>
 
-                            <h2 class="card-title">
-                                NutriSense: Autonomous 3D Dietary Metrology & PM POSHAN Auditing
-                            </h2>
-
-                            <div class="card-role-meta">
-                                <strong>System Architect</strong> · Codebase: <code>Lion4467cat/NutriSense</code>
-                            </div>
-
-                            <p class="card-body-text">
-                                Architected an 8-subsystem single-photo computer vision pipeline for automated nutritional auditing across Indian institutional cafeterias. Fuses Google SigLIP-2 (115 regional dish classes), Microsoft MoGe-2 metric depth with SVD tabletop annulus plane fitting ($3.5\text{ mm}$ tare deduction), Meta DINOv2-S SmoothL1 mass regression ($w_{\text{geom}} \approx 0.27,\; w_{\text{head}} \approx 0.73$), and a 4,000-draw Monte Carlo comonotonic risk engine.
-                            </p>
-
-                            <div class="card-metrics-grid">
-                                <div class="metric-block">
-                                    <span class="m-val">115 <small>Classes</small></span>
-                                    <span class="m-lbl">SigLIP-2 Zero Food-Bleed</span>
-                                </div>
-                                <div class="metric-block">
-                                    <span class="m-val">0.27 / 0.73</span>
-                                    <span class="m-lbl">Inverse-Variance Fusion</span>
-                                </div>
-                                <div class="metric-block">
-                                    <span class="m-val">4,000 <small>Draws</small></span>
-                                    <span class="m-lbl">Monte Carlo Comonotonic Risk</span>
-                                </div>
-                            </div>
-
-                            <div class="card-tech-chips">
-                                <span class="chip">PyTorch</span>
-                                <span class="chip">FastAPI</span>
-                                <span class="chip">React 19</span>
-                                <span class="chip">SigLIP-2</span>
-                                <span class="chip">DINOv2-S</span>
-                                <span class="chip">MoGe-2</span>
-                                <span class="chip">SAM 2.1</span>
-                            </div>
-
-                            <div class="card-btn-row">
-                                <a href="https://github.com/Lion4467cat/NutriSense" class="btn btn-card-primary" target="_blank" rel="noopener noreferrer" data-cursor="CODE">
-                                    <span>Inspect NutriSense Repo</span>
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Slide 04: The Greenifier (Geospatial Solar Potential Architecture) -->
-                    <article class="showcase-card border-glow-amber" data-index="4">
-                        <div class="card-watermark">04</div>
-                        <div class="card-inner">
-                            <div class="card-badge-row">
-                                <span class="pill pill-amber">Geospatial AI & Solar</span>
-                                <span class="pill pill-muted">Open Source Architecture</span>
-                            </div>
-
-                            <h2 class="card-title">
-                                The Greenifier: Automated Rooftop Solar & Irradiance Auditor
-                            </h2>
-
-                            <div class="card-role-meta">
-                                <strong>Creator & Architect</strong> · Codebase: <code>Lion4467cat/greenifier</code>
-                            </div>
-
-                            <p class="card-body-text">
-                                Global rooftop solar potential estimator fetching keyless Zoom 18 satellite tiles via Web Mercator projection. Segments usable roof surfaces and terrain using OpenCV HSV thresholding, Canny edge suppression, and morphological contour closing. Integrated with NASA POWER API for solar irradiance and Groq Llama 3.3 70B for automated financial capex and payback estimation.
-                            </p>
-
-                            <div class="card-metrics-grid">
-                                <div class="metric-block">
-                                    <span class="m-val">Zoom 18</span>
-                                    <span class="m-lbl">Keyless Web Mercator Tiles</span>
-                                </div>
-                                <div class="metric-block">
-                                    <span class="m-val">NASA POWER</span>
-                                    <span class="m-lbl">Direct Irradiance Telemetry</span>
-                                </div>
-                                <div class="metric-block">
-                                    <span class="m-val">70B <small>Llama 3.3</small></span>
-                                    <span class="m-lbl">Financial Reasoning on Groq</span>
-                                </div>
-                            </div>
-
-                            <div class="card-tech-chips">
-                                <span class="chip">OpenCV</span>
-                                <span class="chip">Flask</span>
-                                <span class="chip">NumPy</span>
-                                <span class="chip">Llama 3.3 70B</span>
-                                <span class="chip">Leaflet.js</span>
-                                <span class="chip">Groq API</span>
-                            </div>
-
-                            <div class="card-btn-row">
-                                <a href="https://github.com/Lion4467cat/greenifier" class="btn btn-card-primary" target="_blank" rel="noopener noreferrer" data-cursor="CODE">
-                                    <span>Inspect Greenifier Repo</span>
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                </div>
-
-                <!-- Showcase Progress Footer -->
-                <div class="showcase-strip-progress">
-                    <div class="strip-progress-bar" id="strip-progress-bar"></div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Technical Skills / Architecture Stack -->
-        <section id="skills" class="section">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="section-tag">[ 03 // RIGOROUSLY VERIFIED ]</span>
-                    <h2 class="section-title">Technical Architecture & Stack</h2>
-                    <p class="section-subtitle">100% grounded in code repositories and production deployment.</p>
-                </div>
-
-                <div class="skills-grid">
-                    <div class="skill-category-card" data-cursor="VISION">
-                        <div class="category-header">
-                            <span class="category-icon">👁️</span>
-                            <h3>AI Systems & Multimodal Vision</h3>
-                        </div>
-                        <ul class="skill-list">
-                            <li><strong>Google SigLIP-2</strong> (768-dim Vision Embeddings)</li>
-                            <li><strong>Meta DINOv2-S</strong> (Mass & Density Feature Heads)</li>
-                            <li><strong>Microsoft MoGe-2</strong> (3D Metric Depth Estimation)</li>
-                            <li><strong>Meta SAM 2.1</strong> (Zero-Shot Interactive Segmentation)</li>
-                            <li><strong>Llama 3.3 70B</strong> (Groq High-Throughput Reasoning)</li>
-                            <li><strong>Monte Carlo Uncertainty</strong> (Comonotonic Risk Modeling)</li>
-                            <li><strong>3D Metric Geometry</strong> (SVD Tabletop Annulus Fitting)</li>
+                        <ul class="pill-list" aria-label="Technologies used">
+                            <li>PyTorch (CUDA)</li>
+                            <li>FLORIS (NREL)</li>
+                            <li>PyGAD</li>
+                            <li>Shapely</li>
+                            <li>PyWake</li>
+                            <li>TopFarm</li>
+                            <li>NumPy</li>
                         </ul>
                     </div>
+                </article>
+            </section>
 
-                    <div class="skill-category-card" data-cursor="OPTIM">
-                        <div class="category-header">
-                            <span class="category-icon">⚡</span>
-                            <h3>Optimization & Acceleration</h3>
+            <!-- 02 // Selected Engineering Systems -->
+            <section class="section" id="projects">
+                <h2 class="section-heading reveal"><span>02 //</span> Selected Engineering Systems</h2>
+
+                <!-- 02.1 Verified-Agent Badge -->
+                <article class="editorial-row reveal">
+                    <div class="gutter">
+                        <span class="gutter-tag">02.1 · Oct 2026</span>
+                        <span class="gutter-badge">1st Runner-Up</span>
+                        <span class="gutter-meta">UNCLONE AI 2026</span>
+                    </div>
+                    <div class="entry-body">
+                        <div class="entry-top">
+                            <h3>Verified-Agent Badge — Real-Time Voice Deepfake Defense</h3>
+                            <a href="https://github.com/Lion4467cat/verified-agent-badge" class="ext-link" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
                         </div>
-                        <ul class="skill-list">
-                            <li><strong>PyTorch</strong> (CUDA Tensor Vectorization, Zero Loops)</li>
-                            <li><strong>FLORIS (NREL)</strong> (High-Fidelity Wake Simulation)</li>
-                            <li><strong>PyGAD</strong> (Genetic Algorithm Ensembles)</li>
-                            <li><strong>TopFarm & PyWake</strong> (Wind Resource Benchmarking)</li>
-                            <li><strong>Shapely & GeoPandas</strong> (Non-Convex Polygon Math)</li>
-                            <li><strong>NumPy</strong> (Vectorized Numerical Computing)</li>
+                        <ul class="bullet-list">
+                            <li><strong>Real-Time Voice Deepfake Defense:</strong> Built a live-call verification agent for BMSCE &amp; DetectifAI scoring 6-second audio windows with DetectifAI speaker verification; any 4-second segment with synthetic confidence ≥ 0.90 places an immediate transaction hold, overriding call-level averages.</li>
+                            <li><strong>Zero-Dependency Audio Forensics:</strong> Wrote a Python standard-library PCM WAV forensics module flagging silence ratio (&gt; 0.15), low room-tone RMS (&lt; 0.004), and clipping, plus in-browser Web Audio voice conversion to stress-test the detector.</li>
+                        </ul>
+                        <ul class="pill-list" aria-label="Technologies used">
+                            <li>FastAPI</li>
+                            <li>Python stdlib</li>
+                            <li>DetectifAI API</li>
+                            <li>Web Audio API</li>
+                            <li>Uvicorn</li>
+                            <li>Render</li>
                         </ul>
                     </div>
+                </article>
 
-                    <div class="skill-category-card" data-cursor="BACKEND">
-                        <div class="category-header">
-                            <span class="category-icon">🛠️</span>
-                            <h3>Full-Stack & Signal Engineering</h3>
+                <!-- 02.2 NutriSense -->
+                <article class="editorial-row reveal">
+                    <div class="gutter">
+                        <span class="gutter-tag">02.2 · Capstone</span>
+                        <span class="gutter-badge">Major Project</span>
+                        <span class="gutter-meta">BMSCE</span>
+                    </div>
+                    <div class="entry-body">
+                        <div class="entry-top">
+                            <h3>NutriSense — Autonomous 3D Dietary Metrology &amp; Statutory Audit</h3>
+                            <a href="https://github.com/Lion4467cat/NutriSense" class="ext-link" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
                         </div>
-                        <ul class="skill-list">
-                            <li><strong>Python & SQL</strong> (Core Architecture & Querying)</li>
-                            <li><strong>FastAPI & Uvicorn</strong> (Low-Latency Serving with OOM Guards)</li>
-                            <li><strong>Flask</strong> (Microservices & Geospatial APIs)</li>
-                            <li><strong>React 19 & Vite</strong> (Modern Responsive Frontends)</li>
-                            <li><strong>OpenCV</strong> (HSV Thresholding, Canny Edges)</li>
-                            <li><strong>Web Audio API</strong> (Pitch & Spectral Audio Conversion)</li>
-                            <li><strong>Leaflet.js</strong> (Web Mercator Interactive Mapping)</li>
+                        <ul class="bullet-list">
+                            <li><strong>3D Dietary Metrology:</strong> Architected an 8-subsystem single-photo pipeline for PM POSHAN mid-day meals; used Google SigLIP-2 (α = 0.65 background attenuation) to classify 115 Indian dishes and Microsoft MoGe-2 metric depth with SVD plane fitting (3.5 mm plate tare) to reconstruct food volume.</li>
+                            <li><strong>Mass Fusion &amp; Compliance Audit:</strong> Trained a SmoothL1 mass head on frozen Meta DINOv2-S features, fused with geometric volume via inverse-variance weighting (<em>w</em><sub>head</sub> ≈ 0.73, <em>w</em><sub>geom</sub> ≈ 0.27), and audited IFCT 2017 nutrient bounds using a 4,000-sample Monte Carlo comonotonic engine served via FastAPI to React 19.</li>
+                        </ul>
+                        <ul class="pill-list" aria-label="Technologies used">
+                            <li>PyTorch</li>
+                            <li>SigLIP-2</li>
+                            <li>DINOv2-S</li>
+                            <li>MoGe-2</li>
+                            <li>SAM 2.1</li>
+                            <li>FastAPI</li>
+                            <li>React 19</li>
                         </ul>
                     </div>
+                </article>
 
-                    <div class="skill-category-card" data-cursor="INFRA">
-                        <div class="category-header">
-                            <span class="category-icon">🚢</span>
-                            <h3>Engineering Infrastructure</h3>
+                <!-- 02.3 The Greenifier -->
+                <article class="editorial-row reveal">
+                    <div class="gutter">
+                        <span class="gutter-tag">02.3 · Open Source</span>
+                        <span class="gutter-badge">Geospatial AI</span>
+                    </div>
+                    <div class="entry-body">
+                        <div class="entry-top">
+                            <h3>The Greenifier — Satellite Rooftop Solar &amp; Energy Auditor</h3>
+                            <a href="https://github.com/Lion4467cat/greenifier" class="ext-link" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
                         </div>
-                        <ul class="skill-list">
-                            <li><strong>Linux Environment</strong> (Daily Driver Development)</li>
-                            <li><strong>Git & GitHub</strong> (CI/CD Workflows, Version Control)</li>
-                            <li><strong>Docker</strong> (Containerization Fundamentals)</li>
-                            <li><strong>uv</strong> (Ultra-Fast Python Package Management)</li>
-                            <li><strong>Render</strong> (Automated Cloud Deployments)</li>
-                            <li><strong>DetectifAI & NASA POWER APIs</strong> (Telemetry Integration)</li>
+                        <ul class="bullet-list">
+                            <li><strong>Geospatial Computer Vision:</strong> Built a rooftop solar estimator fetching zoom-18 satellite tiles via Web Mercator projection and segmenting usable roof area with OpenCV (HSV thresholding, Canny edges, morphological closing).</li>
+                            <li><strong>LLM Energy Auditing:</strong> Combined NASA POWER irradiance data with Llama 3.3 70B (Groq) to estimate system capacity, capex (INR 65,000/kW), payback period, and CO<sub>2</sub> offset in a Flask and Leaflet.js dashboard.</li>
+                        </ul>
+                        <ul class="pill-list" aria-label="Technologies used">
+                            <li>OpenCV</li>
+                            <li>Flask</li>
+                            <li>NumPy</li>
+                            <li>NASA POWER API</li>
+                            <li>Llama 3.3 70B</li>
+                            <li>Leaflet.js</li>
+                        </ul>
+                    </div>
+                </article>
+            </section>
+
+            <!-- 03 // Education -->
+            <section class="section" id="education">
+                <h2 class="section-heading reveal"><span>03 //</span> Education</h2>
+
+                <article class="editorial-row reveal">
+                    <div class="gutter">
+                        <span class="gutter-tag">2023 – 2027</span>
+                        <span class="gutter-meta">Bengaluru, India</span>
+                    </div>
+                    <div class="entry-body">
+                        <div class="entry-top">
+                            <h3>B.M.S. College of Engineering</h3>
+                            <span class="right-note">CGPA: 7.37 / 10 (7th Sem)</span>
+                        </div>
+                        <p class="sub-line">B.E. in Artificial Intelligence &amp; Machine Learning (Expected 2027)</p>
+                        <p class="muted-copy"><strong>Coursework:</strong> Machine Learning, Deep Learning, Large Language Models, Time Series Analysis, Evolutionary Computing.</p>
+                    </div>
+                </article>
+
+                <article class="editorial-row reveal">
+                    <div class="gutter">
+                        <span class="gutter-tag">2016 – 2023</span>
+                        <span class="gutter-meta">Kodagu, India</span>
+                    </div>
+                    <div class="entry-body">
+                        <div class="entry-top">
+                            <h3>Sainik School Kodagu</h3>
+                            <span class="right-note">CBSE Class XII: 88.6% · Class X: 91.4%</span>
+                        </div>
+                        <p class="sub-line">Residential Cadet Schooling</p>
+                    </div>
+                </article>
+            </section>
+
+            <!-- 04 // Technical Stack -->
+            <section class="section" id="skills">
+                <h2 class="section-heading reveal"><span>04 //</span> Technical Stack</h2>
+
+                <div class="stack-grid reveal">
+                    <div class="stack-cell">
+                        <h3>ML &amp; Computer Vision</h3>
+                        <ul class="pill-list">
+                            <li>PyTorch (CUDA)</li>
+                            <li>SigLIP-2</li>
+                            <li>DINOv2</li>
+                            <li>MoGe-2</li>
+                            <li>SAM 2.1</li>
+                            <li>OpenCV</li>
+                            <li>NumPy</li>
+                            <li>Monte Carlo Simulation</li>
+                        </ul>
+                    </div>
+                    <div class="stack-cell">
+                        <h3>Optimization &amp; Simulation</h3>
+                        <ul class="pill-list">
+                            <li>PyGAD</li>
+                            <li>FLORIS (NREL)</li>
+                            <li>PyWake</li>
+                            <li>TopFarm</li>
+                            <li>Shapely</li>
+                            <li>SVD Plane Fitting</li>
+                        </ul>
+                    </div>
+                    <div class="stack-cell">
+                        <h3>Backend &amp; Web Systems</h3>
+                        <ul class="pill-list">
+                            <li>FastAPI</li>
+                            <li>Flask</li>
+                            <li>React 19</li>
+                            <li>Vite</li>
+                            <li>Leaflet.js</li>
+                            <li>Web Audio API</li>
+                            <li>Uvicorn</li>
+                            <li>Groq API</li>
+                            <li>NASA POWER</li>
+                            <li>DetectifAI</li>
+                        </ul>
+                    </div>
+                    <div class="stack-cell">
+                        <h3>Languages &amp; Tooling</h3>
+                        <ul class="pill-list">
+                            <li>Python</li>
+                            <li>SQL</li>
+                            <li>JavaScript (ES6+)</li>
+                            <li>HTML5</li>
+                            <li>CSS3</li>
+                            <li>Git</li>
+                            <li>GitHub</li>
+                            <li>Linux</li>
+                            <li>Docker</li>
+                            <li>uv</li>
+                            <li>Render</li>
                         </ul>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Credentials & Rigor (Education, Military Discipline & Athletics) -->
-        <section id="credentials" class="section">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="section-tag">[ 04 // RIGOR & DISCIPLINE ]</span>
-                    <h2 class="section-title">Credentials, Military Training & Athletics</h2>
-                    <p class="section-subtitle">The physical and strategic discipline that directly shapes how I architect software.</p>
-                </div>
+            <!-- 05 // Honors, Credentials & Activities -->
+            <section class="section" id="credentials">
+                <h2 class="section-heading reveal"><span>05 //</span> Honors, Credentials &amp; Activities</h2>
 
-                <div class="credentials-grid">
-                    <!-- Academic Card -->
-                    <div class="cred-card border-glow-indigo" data-cursor="BMSCE">
-                        <div class="cred-header">
-                            <span class="cred-icon">🎓</span>
-                            <div>
-                                <span class="pill pill-indigo">Academic Foundation</span>
-                                <h3 class="cred-title">B.M.S. College of Engineering</h3>
-                                <p class="cred-subtitle">B.E. in Artificial Intelligence & Machine Learning · Bengaluru</p>
-                            </div>
-                        </div>
-                        <div class="cred-body">
-                            <div class="cred-stat-row">
-                                <span class="cred-stat-val">7.37 / 10 CGPA</span>
-                                <span class="cred-stat-lbl">7th Semester · 2023 – 2027</span>
-                            </div>
-                            <p class="cred-desc">
-                                <strong>Relevant Coursework:</strong> Large Language Models, Deep Learning, Machine Learning, Time Series Analysis, Evolutionary Computing, Social Network Analysis.
-                            </p>
-                            <p class="cred-desc">
-                                <strong>Capstone Project:</strong> <em>NutriSense</em> — Autonomous 3D dietary metrology and statutory Mid-Day Meal nutritional auditing.
-                            </p>
-                        </div>
+                <dl class="spec-table reveal">
+                    <div class="spec-row">
+                        <dt>UPSC NDA (2023)</dt>
+                        <dd>Qualified Written Examination (placed in top ~0.5% nationwide)</dd>
                     </div>
-
-                    <!-- Military Cadet Card -->
-                    <div class="cred-card border-glow-cyan" data-cursor="MILITARY">
-                        <div class="cred-header">
-                            <span class="cred-icon">🎖️</span>
-                            <div>
-                                <span class="pill pill-cyan">Military Rigor</span>
-                                <h3 class="cred-title">Sainik School Kodagu</h3>
-                                <p class="cred-subtitle">Residential Military Training · 2016 – 2023</p>
-                            </div>
-                        </div>
-                        <div class="cred-body">
-                            <div class="cred-stat-row">
-                                <span class="cred-stat-val">Top ~0.5% Nationwide</span>
-                                <span class="cred-stat-lbl">UPSC NDA Written Examination Qualified (2023)</span>
-                            </div>
-                            <div class="cred-bullets">
-                                <div class="c-bullet">
-                                    <span class="b-dot"></span>
-                                    <span><strong>NCC Credentials:</strong> Completed NCC Certificates 'A' (Grade A), 'B' (Grade B), and 'C' (Grade B).</span>
-                                </div>
-                                <div class="c-bullet">
-                                    <span class="b-dot"></span>
-                                    <span><strong>Best Volunteer Award:</strong> NSS Annual Camp 2025 (Selected from 100+ participants).</span>
-                                </div>
-                                <div class="c-bullet">
-                                    <span class="b-dot"></span>
-                                    <span><strong>Academics:</strong> CBSE Class 12: 88.6% (2023) | CBSE Class 10: 91.4% (2021).</span>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="spec-row">
+                        <dt>NCC Certificates</dt>
+                        <dd>Earned Certificates ‘A’ (Grade A), ‘B’ (Grade B), and ‘C’ (Grade B)</dd>
                     </div>
-
-                    <!-- Endurance Athletics Card -->
-                    <div class="cred-card border-glow-emerald" data-cursor="ENDURANCE">
-                        <div class="cred-header">
-                            <span class="cred-icon">🚴</span>
-                            <div>
-                                <span class="pill pill-emerald">Extreme Stamina</span>
-                                <h3 class="cred-title">Endurance Athletics & Strategy</h3>
-                                <p class="cred-subtitle">Aerobic Capacity & Branch Pruning Instincts</p>
-                            </div>
-                        </div>
-                        <div class="cred-body">
-                            <div class="cred-stat-row">
-                                <span class="cred-stat-val">79.9 km & 58.2 km</span>
-                                <span class="cred-stat-lbl">Timed Official Endurance Cyclothons Finisher</span>
-                            </div>
-                            <div class="cred-bullets">
-                                <div class="c-bullet">
-                                    <span class="b-dot"></span>
-                                    <span><strong>Marathon Runner & Trekker:</strong> High aerobic capacity, prolonged mental focus under fatigue, high-altitude Western Ghats trekking.</span>
-                                </div>
-                                <div class="c-bullet">
-                                    <span class="b-dot"></span>
-                                    <span><strong>Competitive Chess:</strong> Algorithmic game theory, deep tree look-ahead, and unemotional risk calibration under time controls.</span>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="spec-row">
+                        <dt>NSS Annual Camp</dt>
+                        <dd>Best Volunteer Award 2025 (selected from 100+ participants)</dd>
                     </div>
-                </div>
-            </div>
-        </section>
+                    <div class="spec-row">
+                        <dt>Certifications</dt>
+                        <dd>Python for Data Science (IBM) · Green Skills and AI (Edunet Foundation)</dd>
+                    </div>
+                    <div class="spec-row">
+                        <dt>Endurance Sports</dt>
+                        <dd>Self-supported 79.9 km and 58.2 km endurance cycling rides; recreational marathon runner</dd>
+                    </div>
+                    <div class="spec-row">
+                        <dt>Hobbies &amp; Strategy</dt>
+                        <dd>High-altitude trekking (hobby); competitive chess player</dd>
+                    </div>
+                </dl>
+            </section>
 
-        <!-- Directives & Contact Section (100% Crisp & Fully Readable) -->
-        <section id="contact" class="section contact-section">
-            <div class="section-container">
-                <div class="contact-card border-glow-indigo">
-                    <span class="section-tag">[ 05 // SYSTEM DIRECTIVES ]</span>
-                    <h2 class="contact-title">Let's Build Rigorous AI Systems</h2>
-                    <p class="contact-desc">
-                        Available for AI systems architecture, multimodal vision research internships, and complex deep learning pipeline development.
+            <!-- 06 // Contact -->
+            <section class="section contact-section" id="contact">
+                <h2 class="section-heading reveal"><span>06 //</span> Contact</h2>
+
+                <div class="contact-box reveal">
+                    <p class="contact-lead">
+                        Open to research internships and engineering roles in machine learning, computer vision, and optimization systems.
                     </p>
-
-                    <div class="contact-links-grid">
-                        <a href="mailto:gokulaswamyss@gmail.com" class="contact-item" target="_blank" rel="noopener noreferrer" data-cursor="MAIL">
-                            <span class="contact-icon">✉️</span>
-                            <div class="contact-info-col">
-                                <span class="contact-label">Direct Communication</span>
-                                <span class="contact-val">gokulaswamyss@gmail.com</span>
-                            </div>
-                        </a>
-
-                        <button id="copy-email-btn" class="contact-item btn-copy-card" data-cursor="COPY">
-                            <span class="contact-icon">📋</span>
-                            <div class="contact-info-col">
-                                <span class="contact-label">Quick Copy</span>
-                                <span class="contact-val" id="copy-status-text">Click to copy email address</span>
-                            </div>
-                        </button>
-
-                        <a href="https://linkedin.com/in/ssgokulaswamy" class="contact-item" target="_blank" rel="noopener noreferrer" data-cursor="LINKEDIN">
-                            <span class="contact-icon">💼</span>
-                            <div class="contact-info-col">
-                                <span class="contact-label">Professional Network</span>
-                                <span class="contact-val">linkedin.com/in/ssgokulaswamy</span>
-                            </div>
-                        </a>
-
-                        <a href="https://github.com/Lion4467cat" class="contact-item" target="_blank" rel="noopener noreferrer" data-cursor="GITHUB">
-                            <span class="contact-icon">🐙</span>
-                            <div class="contact-info-col">
-                                <span class="contact-label">GitHub Account</span>
-                                <span class="contact-val">github.com/Lion4467cat</span>
-                            </div>
-                        </a>
+                    <div class="contact-bar">
+                        <a href="mailto:gokulaswamyss@gmail.com" class="contact-email">gokulaswamyss@gmail.com</a>
+                        <div class="contact-actions">
+                            <button type="button" class="btn-small" id="copy-email" data-email="gokulaswamyss@gmail.com">Copy Email</button>
+                            <a href="https://linkedin.com/in/ssgokulaswamy" class="btn-small" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+                            <a href="https://github.com/Lion4467cat" class="btn-small" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                            <a href="assets/SS_Gokula_Swamy_Resume.pdf" class="btn-small btn-small-primary" target="_blank" rel="noopener noreferrer">Resume (PDF) ↗</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    </main>
+            </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-col-left">
-                <p class="footer-copyright">&copy; 2026 S. S. Gokula Swamy (<code>Lion4467cat</code>). Grounded strictly in production code.</p>
-                <p class="footer-subtext">AI Systems Architect & Multimodal ML Researcher · B.M.S. College of Engineering, Bengaluru</p>
-            </div>
-            <div class="footer-meta">
-                <span class="footer-location">Bengaluru, India</span> · 
-                <a href="https://github.com/Lion4467cat/raikabuilds" class="footer-source-link" target="_blank" rel="noopener noreferrer">Portfolio Source Code ↗</a>
-            </div>
-        </div>
-    </footer>
+            <footer class="col-footer">
+                <span>© <span id="year">2026</span> S. S. Gokula Swamy</span>
+                <a href="#top">Back to top ↑</a>
+            </footer>
+        </main>
+    </div>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
